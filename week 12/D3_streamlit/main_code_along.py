@@ -39,3 +39,11 @@ row1_spacer1, row1_1, row1_spacer2, row1_2, row1_spacer3 = st.columns(
 # Create model magic
 
 
+st.header("Customer Churn Analysis")
+# Elements we need: data to analyze, some interesting charts, and some model
+data = pd.read_csv("https://raw.githubusercontent.com/sabinagio/data-analytics/main/data/customer_churn.csv").dropna()
+st.markdown("### Exploratory Data Analysis")
+charges = st.selectbox("", ("MonthlyCharges", "TotalCharges"))
+cat_var = st.selectbox("", data.select_dtypes("object").columns.drop("customerID"))
+fig = px.histogram(data, x=charges, facet_row=cat_var)
+st.plotly_chart(fig)

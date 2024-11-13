@@ -31,6 +31,7 @@ st.plotly_chart(fig)
 
 
 st.markdown("### Exploratory Data Analysis")
+st.write("Dropdown - Option 1, No Space")
 col1, col2 = st.columns(2)
 with col1:
     charges = st.selectbox("", ("MonthlyCharges", "TotalCharges"))

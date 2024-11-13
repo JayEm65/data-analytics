@@ -59,3 +59,13 @@ row1_spacer1, row1_1, row1_spacer2, row1_2, row1_spacer3 = st.columns(
 # Preprocessing data
 
 # Create model magic
+
+
+st.write("Dropwdown - option 2, with space")
+row0_spacer1, row0_1, row0_spacer2, row0_2, row0_spacer3 = st.columns(
+    (0.01, 2, 0.1, 2, 0.01)
+)
+with row0_1:
+    charges = st.selectbox("", ("MonthlyCharges", "TotalCharges"))
+with row0_2:
+    cat_var = st.selectbox("", data.select_dtypes("object").columns.drop("customerID"))

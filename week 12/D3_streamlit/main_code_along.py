@@ -31,11 +31,13 @@ st.plotly_chart(fig)
 
 
 st.markdown("### Exploratory Data Analysis")
-st.write("Dropdown - Option 1, No Space")
-col1, col2 = st.columns(2)
-with col1:
+st.write("Dropwdown - option 2, with space")
+row0_spacer1, row0_1, row0_spacer2, row0_2, row0_spacer3 = st.columns(
+    (0.01, 2, 0.1, 2, 0.01)
+)
+with row0_1:
     charges = st.selectbox("", ("MonthlyCharges", "TotalCharges"))
-with col2:
+with row0_2:
     cat_var = st.selectbox("", data.select_dtypes("object").columns.drop("customerID"))
 fig = px.histogram(data, x=charges, facet_row=cat_var)
 st.plotly_chart(fig)
@@ -60,12 +62,3 @@ row1_spacer1, row1_1, row1_spacer2, row1_2, row1_spacer3 = st.columns(
 
 # Create model magic
 
-
-st.write("Dropwdown - option 2, with space")
-row0_spacer1, row0_1, row0_spacer2, row0_2, row0_spacer3 = st.columns(
-    (0.01, 2, 0.1, 2, 0.01)
-)
-with row0_1:
-    charges = st.selectbox("", ("MonthlyCharges", "TotalCharges"))
-with row0_2:
-    cat_var = st.selectbox("", data.select_dtypes("object").columns.drop("customerID"))
